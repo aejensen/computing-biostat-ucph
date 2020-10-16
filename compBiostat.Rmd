@@ -23,15 +23,15 @@ Usage of cox and rao is based on submitting jobs to a scheduler. The scheduler u
 
 > \Lightning It is **strictly forbidden** to use cox and rao outside of the Slurm scheduler! This means that you are **not** allowed to run R interactively on the servers and fork processes using e.g., ```mclapply``` or other fascilities from the parallel package.\Lightning
 
-The **only** exception is if you need to install R packages for later used by jobs submitted to the scheduler. You can do that by stating up R and installing the packages as usual.
+The **only** exception is if you need to install R packages for later used by jobs submitted to the scheduler. You can do that by starting up R and installing the packages as usual.
 
-The reason for this strict requirement is that every employee of the section should have equal access to the available resources as fairly as possible. If you are more anarchistically inclined, the section has three older servers that can be used in a free-for-all environment. More on these in section \ref{sec:oldservers} of this document. 
+The reason behing this strict requirement is that every employee of the section should have equal access to the available resources as fairly as possible. If you are more anarchistically inclined, the section has three older servers that can be used in a free-for-all environment. More on these in section \ref{sec:oldservers} of this document. 
 
 # How to logon
 
 In order to logon to the servers you must first be added as a linux user on the system. It is *only* KU-IT that can do that, so if you are not already a user on the system, you should contact KU-IT.
 
-If you have a user on the system you connect through ssh. You do this from a terminal session on either Windows, OS X and Linux. The username and password is your KU username and password. Example:
+If you already have been granted a linux user, you connect through ssh. You do this from a terminal session on either Windows, OS X and Linux. The username and password is your KU username and password. Example:
 
 \begin{Verbatim}[fontsize=\small]
 ComputerKing@hawaii ~ % ssh czv146@cox
@@ -118,7 +118,7 @@ save(result, file = paste('output/result-', task_id, '.RData', sep = ""))
 
 # The older servers running without a scheduler {#sec:oldservers}
 
-The section still also has three older servers: **fisher**, **gauss** and **borel**. You can connect to these through ssh in a similar manner as when connecting to cox and rao.
+The Section of Biostatistics still has three older servers: **fisher**, **gauss** and **borel**. You can connect to these through ssh in a similar manner as when connecting to cox and rao.
 
 * **fisher** is from 2013 and is a HP ProLiant BL685c G7 server with 4 AMD Opteron 6380 processors with a total of 32 cores, 64 threads and ½ TB of memory running openSUSE 13.1 (Bottle)
 
