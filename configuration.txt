@@ -21,6 +21,9 @@ sudo yum install libjpeg-turbo-devel
 sudo yum install v8
 sudo yum install v8-devel
 
+# Add packages for openssl
+sudo yum install openssl-devel
+
 # Add newest gcc toolchain
 sudo subscription-manager list --available
 sudo subscription-manager attach --pool=8a85f99a65c8c8a10166e3f7902b5abd
