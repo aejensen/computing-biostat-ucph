@@ -31,10 +31,10 @@ The reason behing this strict requirement is that every employee of the section 
 
 In order to logon to the servers you must first be added as a linux user on the system. It is *only* KU-IT that can do that, so if you are not already a user on the system, you should contact KU-IT.
 
-If you already have been granted a linux user, you connect through ssh. You do this from a terminal session on either Windows, OS X and Linux. The username and password is your KU username and password. Example:
+If you already have been granted a linux user, you connect through ssh. You do this from a terminal session on either Windows, OS X and Linux. The username and password is your KU username (```xxx999``` in the example below) and password. Example:
 
 \begin{Verbatim}[fontsize=\small]
-ComputerKing@hawaii ~ % ssh czv146@cox
+ComputerKing@hawaii ~ % ssh xxx999@cox
 Password:
 Last login: Fri Oct 16 09:14:27 2020 from 10.34.96.111
 Information on usage of the computing cluster and examples of how to submit jobs can be found in 
@@ -82,13 +82,13 @@ Example for checking the status of the system. Login to either cox and rao and e
 \begin{Verbatim}[fontsize=\small]
 bash-4.2$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-            2627_0  standard    doSim   czv146  R       0:24      1 biostatcomp01fl 
-            2627_1  standard    doSim   czv146  R       0:24      1 biostatcomp01fl 
-            2627_2  standard    doSim   czv146  R       0:24      1 biostatcomp01fl 
-            2627_3  standard    doSim   czv146  R       0:24      1 biostatcomp01fl 
-            2627_4  standard    doSim   czv146  R       0:24      1 biostatcomp01fl 
+            2627_0  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
+            2627_1  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
+            2627_2  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
+            2627_3  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
+            2627_4  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
 \end{Verbatim}
-It is seen that the user ```czv146``` is running 5 jobs on ```biostatcomp01fl``` with the name ```doSim```, and they have been running for 24 seconds.
+It is seen that the user ```xxx999``` is running 5 jobs on ```biostatcomp01fl``` with the name ```doSim```, and they have been running for 24 seconds.
 
 ## A full example
 Consider a simple R program where we generate some random data and estimate a parameter
@@ -134,23 +134,38 @@ It is important to be aware of that due to the different versions of operating s
 
 **Note**: It is the plan to shut down gauss and borel by the end of the year 2020.
 
-
-# Getting help
-
-If you have small problems or need some software or libraries installed on the servers some of us have ```sudo``` permissions and might be able to help. You can e.g., contact Andreas (aeje) if you can find him. For larger scale problems or if the servers become non-responsive you should contact KU-IT.
-
-It should be noted that **you** are in control of your own R packages on the systems. There are no globally or regularly updated R packages installed on the servers. R packages are installed locally for each user in ```~/R``` and you manage these yourself.
-
-
 # Miscellaneous
 
-## gcc
+The following sections are comments of general usefulness.
 
-cox and rao are equipped with gcc version 4.8.5 which is the default version on RHEL 7. To use the newest version of gcc as required when e.g., installing the rstan or compiling stan programs you must execute 
+## Installation of R packages
+
+You yourself are in control of which packages you have installed for your own local R environment. There are **no** globally or regularly updated R packages installed on the servers. To use some R package you must install them yourself, and they will be downloaded from a CRAN mirror and installed in ```~/R```. When R gets updated on the servers you sometimes have to reinstall your R packages.
+
+You can install an R package by starting R interactive and executing the command 
+
+```install.packages("name-of-package-to-install")```
+
+Note that this is the **only** case where you are allowed to use R on cox and rao interactively outside of the Slurm scheduler.
+
+To make the Danish mirror of CRAN the default repository when installing new packages you can add the following lines to your ```~/.Rprofile``` file
+\begin{Verbatim}[fontsize=\small]
+local({
+  r <- getOption("repos")
+  r["CRAN"] <- "https://mirrors.dotsrc.org/cran"
+  options(repos = r)
+})
+\end{Verbatim}
+
+Installing some R packages requires compilation of C/C++ code. You can speed-up this process by using multiple cores. To do this you can add ```MAKEFLAGS=-j64``` to your ```~/.R/Makevars``` file or more generally add ```export MAKEFLAGS=-j64``` to your ```~/.bash_profile``` file.
+
+## GNU Compiler Collection (GCC) on cox and rao
+
+cox and rao are equipped with GCC version 4.8.5 which is the default version on RHEL 7. To use the newest version of GCC as required when e.g., installing the rstan or compiling stan programs you must execute 
 
 ```scl enable devtoolset-9 'bash'```
-    
-This command will spawn a new shell with gcc version 9.3.1 as the default compiler. This is *not* persistent between sessions! You can execute ```exit``` to return to the previous shell with the old version of gcc.
+
+in your shell. This command will then spawn a new shell with gcc version 9.3.1 as the default compiler. This is *not* persistent between sessions! You can execute ```exit``` to return to the previous shell with the old version of gcc.
 
 Example:
 \begin{Verbatim}[fontsize=\small]
@@ -170,6 +185,8 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 bash-4.2$ 
 \end{Verbatim}
 
+**Note:** It's not advisable to install packages while mixing different versions of GCC. This can lead to corruption of you local repositry of packages in ```~/R```.
+
 ## Installing the rstan package
 rstan can be a difficult package to install and the requirements have changed through versions. Currently it works on cox and rao if you set the following flags in your ```~/.R/Makevars```. 
 
@@ -178,7 +195,8 @@ CXX14FLAGS=-O3 -march=native -mtune=native -fPIC
 CXX14=g++
 \end{Verbatim}
 
-Remember to also enable the 9.3.1 version of gcc before installing rstan. You must also have this enabled in your session when compiling stan scripts.
+Remember to also enable the 9.3.1 version of GCC before installing rstan. You must also have this enabled in your session when compiling stan scripts.
 
-## Faster installation of R packages
-Some R packages require compilation of c/c++ code. You can speed-up this process by using multiple cores. To do this you can add ```MAKEFLAGS=-j64``` to ```~/.R/Makevars``` or more generally add ```export MAKEFLAGS=-j64``` to your ```~/.bash_profile```.
+# Getting help
+
+If you have small problems or need some software or libraries installed on the servers some of us have ```sudo``` permissions and might be able to help. You can e.g., contact Andreas (aeje) if you can find him. For larger scale problems or if the servers become non-responsive you should contact KU-IT.
