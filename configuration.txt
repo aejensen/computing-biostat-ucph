@@ -32,18 +32,9 @@ sudo yum install finger
 
 # R Stuff
 
-## Add packages for fdasrvf
-sudo yum install mesa-libGLU-devel
-
-## Add packages for fdapace
-sudo yum install libjpeg-turbo-devel
-
-## Add packages for rstan
-sudo yum install v8
-sudo yum install v8-devel
-
-## Add packages for openssl
-sudo yum install openssl-devel
-
-## Add packages for xml2
-sudo yum install libxml2-devel
+sudo yum install mesa-libGLU-devel    #fdasrvf
+sudo yum install libjpeg-turbo-devel  #fdapace
+sudo yum install v8                   #rstan
+sudo yum install v8-devel             #rstan
+sudo yum install openssl-devel        #openssl
+sudo yum install libxml2-devel        #xml2
