@@ -38,3 +38,6 @@ sudo yum install v8                   #rstan
 sudo yum install v8-devel             #rstan
 sudo yum install openssl-devel        #openssl
 sudo yum install libxml2-devel        #xml2
+sudo yum install cmake gsl-devel protobuf-devel zeromq-devel fftw-devel libgit2-devel gmp-devel
+sudo yum install hdf5-devel libtiff-devel libjq-devel ImageMagick-c++-devel openssl-devel cyrus-sasl-devel
+sudo yum install poppler-cpp-devel librsvg2-devel udunits2-devel libxslt-devel
