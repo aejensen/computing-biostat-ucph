@@ -1,6 +1,6 @@
 What I did to cox and rao
 
-If you add stuff, remember to do it on BOTH cox and rao to keep them synchronized.
+If you have sudo permissions and mess with stuff, please do it on both cox and rao to keep them synchronized.
 
 # General stuff
 
