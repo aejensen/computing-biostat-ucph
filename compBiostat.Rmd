@@ -1,14 +1,14 @@
 ---
 title: "Introduction to the computing@biostat.ucph"
 author: "Andreas Kryger Jensen"
-date: "October 2020"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 abstract: |
     This is an introduction to the computing fascilities at the Section of Biostatistics, Institute of Public Health, University of Copenhagen. It is maintained by Andreas (\ManFace) and the latest version can be found at \url{https://github.com/aejensen/computing-biostat-ucph}. This is work in progress.
 output: 
   pdf_document:
     number_sections: true
     toc: true
-    extra_dependencies: ["fancyvrb", "marvosym"]
+    extra_dependencies: ["fancyvrb", "marvosym", "alltt"]
 ---
 
 # Introduction
@@ -19,27 +19,31 @@ Usage of cox and rao is based on submitting jobs to a scheduler. The scheduler u
 
 > \Lightning It is **strictly forbidden** to use cox and rao outside of the Slurm scheduler! This means that you are **not** allowed to run R interactively on the servers and fork processes using e.g., ```mclapply``` or other fascilities from the parallel package.\Lightning
 
-The **only** exception is if you need to install R packages for later used by jobs submitted to the scheduler. You can do that by starting up R and installing the packages as usual.
+The **only** exception is if you need to install R packages for subsequent use by jobs submitted to the scheduler. You can do that by starting up R interactively in a terminal on either cox and rao and installing the packages as usual.
 
 The reason behind this strict requirement is that every employee of the section should have equal access to the available resources as fairly as possible. If you are more anarchistically inclined, the section has three older servers that can be used in a free-for-all environment. More on these in section \ref{sec:oldservers} of this document. 
 
 # How to logon
 
-In order to logon to the servers you must first be added as a linux user on the system. It is *only* KU-IT that can do that, so if you are not already a user on the system, you should contact KU-IT.
+In order to logon to the servers you must first be added as a Linux user on the system. It is *only* KU-IT that can do that, so if you are not already a user on the system, you should contact KU-IT.
 
-If you already have been granted a linux user, you connect through ssh. You do this from a terminal session on either Windows, OS X and Linux. The username and password is your KU username (```xxx999``` in the example below) and password. Example:
+If you already have been granted a Linux user, you connect through ssh. You do this from a terminal session on either Windows, OS X and Linux. The username and password is your KU username (\ManFace \hfill in the example below) and password. Example:
 
-\begin{Verbatim}[fontsize=\small]
-ComputerKing@hawaii ~ % ssh xxx999@cox
-Password:
+\begin{alltt}\small
+ComputerKing@hawaii ~ % ssh \ManFace@cox
+Password: ***************
 Last login: Fri Oct 16 09:14:27 2020 from 10.34.96.111
 Information on usage of the computing cluster and examples of how to submit jobs can be found in 
-/home/ifsvafd/bsafd/computingcluster and O:\computingcluster. Man pages can be found at. 
+/home/ifsvafd/bsafd/computingcluster and O:{\textbackslash}computingcluster. Man pages can be found at. 
 http://gridscheduler.sourceforge.net/htmlman/manuals.html
-bash-4.2$ 
-\end{Verbatim}
+bash-4.2\$ 
+\end{alltt}
 
-If you are connected to the internet at CSS through the wall, you can connect directly. If you are on eduroam, another WiFi, home, or otherwise outside of CSS you must establish a VPN connection to KU first. See \url{https://kunet.ku.dk/medarbejderguide/Sider/It/Fjernadgang-vpn.aspx} for information on how to do this.
+If you are connected to the internet at CSS through the wall, you can connect directly. If you are on eduroam, another WiFi, home, or otherwise outside of CSS you must establish a VPN connection to KU first. See
+
+>\url{https://kunet.ku.dk/medarbejderguide/Sider/It/Fjernadgang-vpn.aspx} 
+
+for information on how to do this.
 
 
 #  Using the Slurm scheduler on cox and rao
@@ -170,7 +174,7 @@ cox and rao are equipped with GCC version 4.8.5 which is the default version on 
 
 ```scl enable devtoolset-9 'bash'```
 
-in your shell. This command will then spawn a new shell with gcc version 9.3.1 as the default compiler. This is *not* persistent between sessions! You can execute ```exit``` to return to the previous shell with the old version of gcc.
+in your shell. This command will then spawn a new shell with gcc version 9.3.1 as the default compiler. This is **not** persistent between sessions! You can execute ```exit``` to return to the previous shell with the old version of gcc.
 
 Example:
 \begin{Verbatim}[fontsize=\small]
