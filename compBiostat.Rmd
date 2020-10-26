@@ -21,7 +21,7 @@ Usage of cox and rao is based on submitting jobs to a scheduler. The scheduler u
 
 The **only** exception is if you need to install R packages for later used by jobs submitted to the scheduler. You can do that by starting up R and installing the packages as usual.
 
-The reason behing this strict requirement is that every employee of the section should have equal access to the available resources as fairly as possible. If you are more anarchistically inclined, the section has three older servers that can be used in a free-for-all environment. More on these in section \ref{sec:oldservers} of this document. 
+The reason behind this strict requirement is that every employee of the section should have equal access to the available resources as fairly as possible. If you are more anarchistically inclined, the section has three older servers that can be used in a free-for-all environment. More on these in section \ref{sec:oldservers} of this document. 
 
 # How to logon
 
@@ -117,7 +117,7 @@ x <- rnorm(1000)
 result <- mean(x)
 # -------------------------------------------------------------
 
-# Save the results in an individual file in the output folder
+# Save the results for this task as an individual file in the output folder
 save(result, file = paste('output/result-', task_id, '.RData', sep = ""))
 ```
 
@@ -190,7 +190,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 bash-4.2$ 
 \end{Verbatim}
 
-**Note:** It's not advisable to install packages while mixing different versions of GCC. This can lead to corruption of you local repositry of packages in ```~/R```.
+**Note:** It's not advisable to install packages while mixing different versions of GCC. This can lead to corruption of your local repository of packages in ```~/R```.
 
 ## Installing the rstan package
 rstan can be a difficult package to install and the requirements have changed through versions. Currently it works on cox and rao if you set the following flags in your ```~/.R/Makevars```. 
