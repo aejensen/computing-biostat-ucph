@@ -3,17 +3,13 @@ title: "Introduction to the computing@biostat.ucph"
 author: "Andreas Kryger Jensen"
 date: "October 2020"
 abstract: |
-    This is an introduction to the computing fascilities at the Section of Biostatistics, Institute of Public Health, University of Copenhagen. It is maintained by Andreas (\ManFace) and the latest version can be found at \url{https://github.com/aejensen/computing-biostat-ucph}.
+    This is an introduction to the computing fascilities at the Section of Biostatistics, Institute of Public Health, University of Copenhagen. It is maintained by Andreas (\ManFace) and the latest version can be found at \url{https://github.com/aejensen/computing-biostat-ucph}. This is work in progress.
 output: 
   pdf_document:
     number_sections: true
     toc: true
     extra_dependencies: ["fancyvrb", "marvosym"]
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 # Introduction
 
@@ -67,18 +63,17 @@ A typical workflow:
 2 directories, 1 file
 \end{Verbatim}
 
-
-## Useful commands
-
-The following commands are used to communicated with the scheduler and probably the only ones that you will need.
+The following commands are used to communicate with the Slurm scheduler and are probably the only ones that you will need.
 
 * ```squeue``` - view information about jobs located in the Slurm scheduler
 
-* ```sbatch``` - submit a command to Slurm
-
 * ```scancel``` - cancel a job running on Slurm
 
-Example for checking the status of the system. Login to either cox and rao and execute ```squeue```.
+* ```sbatch``` - submit a command to Slurm
+
+## View the status of the scheduler
+
+While logged on to either cox or rao you can view the status of the scheduler by executing the command ```squeue``` as in the following example
 \begin{Verbatim}[fontsize=\small]
 bash-4.2$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
@@ -88,9 +83,18 @@ bash-4.2$ squeue
             2627_3  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
             2627_4  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
 \end{Verbatim}
-It is seen that the user ```xxx999``` is running 5 jobs on ```biostatcomp01fl``` with the name ```doSim```, and they have been running for 24 seconds.
+from which it can be seen that the user ```xxx999``` is running 5 jobs on ```biostatcomp01fl``` with the name ```doSim```, and they have been running for 24 seconds.
 
-## A full example
+## Canceling a job on the schedule
+
+To cancel the  job ```doSim``` submitted by the user ```xxx999``` you can execute the following command
+
+```scancel 2627```
+
+You can only cancel your own jobs.
+ 
+## Submitting an array job to the scheduler
+
 Consider a simple R program where we generate some random data and estimate a parameter
 ```{r, eval=FALSE}
 x <- rnorm(1000)
@@ -101,10 +105,11 @@ mean(x)
 number_of_tasks <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_COUNT"))
 task_id <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_ID"))
 
-# Generate random seeds corresponding to the number of tasks
-# and use the one for the current task id
+# Set a reproducible random seed for your simulations
 set.seed(123457890)
+# Generate a large number of random seeds to be assigned to each task
 seeds <- sample(1:10^6, size = number_of_tasks, replace = FALSE)
+# Assign the randomly generated seed to the current task
 set.seed(seeds[task_id])
 
 # ---------- Your R program goes between these lines ----------
