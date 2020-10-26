@@ -2,7 +2,7 @@ What I did to cox and rao
 
 If you have sudo permissions and mess with stuff, please do it on both cox and rao to keep them synchronized.
 
-# General stuff
+# OS stuff
 
 ## Add newest gcc toolchain
 sudo subscription-manager list --available
