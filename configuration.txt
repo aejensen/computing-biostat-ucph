@@ -42,8 +42,8 @@ sudo yum install libjpeg-turbo-devel
 sudo yum install v8
 sudo yum install v8-devel
 
-# Add packages for openssl
+## Add packages for openssl
 sudo yum install openssl-devel
 
-# Add packages for xml2
+## Add packages for xml2
 sudo yum install libxml2-devel
