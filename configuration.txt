@@ -1,27 +1,10 @@
 What I did to cox and rao
 
-# Adding language stuff
-bash-4.2$ cat /etc/environment 
-LANG=en_US.utf-8
-LC_ALL=en_US.utf-8
+If you add stuff, remember to do it on BOTH cox and rao to keep them synchronized.
 
-# Add useful utilities
-sudo yum install htop
-sudo yum install tree
-sudo yum install ncdu
-sudo yum install nano
+# General stuff
 
-# Add packages for fdasrvf
-sudo yum install mesa-libGLU-devel
-
-# Add packages for fdapace
-sudo yum install libjpeg-turbo-devel
-
-# Add packages for rstan
-sudo yum install v8
-sudo yum install v8-devel
-
-# Add newest gcc toolchain
+## Add newest gcc toolchain
 sudo subscription-manager list --available
 sudo subscription-manager attach --pool=8a85f99a65c8c8a10166e3f7902b5abd
 sudo subscription-manager list --consumed
@@ -32,5 +15,35 @@ sudo subscription-manager repos --enable rhel-7-server-optional-rpms
 sudo yum list devtoolset-9      #this should show that devtoolset-9 is availabe
 sudo yum install devtoolset-9   #and we now install it
 
-#Enable newest gcc toolchain in a shell
+## Enable newest gcc toolchain in a shell (non-persistent)
 scl enable devtoolset-9 'bash'
+
+## Adding language stuff
+bash-4.2$ cat /etc/environment 
+LANG=en_US.utf-8
+LC_ALL=en_US.utf-8
+
+## Add useful utilities
+sudo yum install htop
+sudo yum install tree
+sudo yum install ncdu
+sudo yum install nano
+sudo yum install finger
+
+# R Stuff
+
+## Add packages for fdasrvf
+sudo yum install mesa-libGLU-devel
+
+## Add packages for fdapace
+sudo yum install libjpeg-turbo-devel
+
+## Add packages for rstan
+sudo yum install v8
+sudo yum install v8-devel
+
+# Add packages for openssl
+sudo yum install openssl-devel
+
+# Add packages for xml2
+sudo yum install libxml2-devel
