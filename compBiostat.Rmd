@@ -1,7 +1,6 @@
 ---
-title: "Introduction to the computing@biostat.ucph"
-author: "Andreas Kryger Jensen"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+title: "Guide to the computing@biostat.ucph"
+author: "Computer King, `r format(Sys.time(), '%d %B %Y')`"
 abstract: |
     This is an introduction to the computing fascilities at the Section of Biostatistics, Institute of Public Health, University of Copenhagen. It is maintained by Andreas (\ManFace) and the latest version can be found at \url{https://github.com/aejensen/computing-biostat-ucph}. This is work in progress.
 output: 
@@ -17,7 +16,11 @@ The Section of Biostatistics owns two servers for high performance computing. Th
 
 Usage of cox and rao is based on submitting jobs to a scheduler. The scheduler used is the the Slurm Workload Manager (\url{https://slurm.schedmd.com/}). The following point is extremely important:
 
-> \Lightning It is **strictly forbidden** to use cox and rao outside of the Slurm scheduler! This means that you are **not** allowed to run R interactively on the servers and fork processes using e.g., ```mclapply``` or other fascilities from the parallel package.\Lightning
+\begin{center}
+\Lightning It is \textbf{strictly forbidden} to use cox and rao outside of the Slurm scheduler! 
+
+This means that you are \textbf{not} allowed to run R interactively on the servers and fork processes using e.g., \texttt{mclapply} or other facilities from the parallel package.\Lightning
+\end{center}
 
 The **only** exception is if you need to install R packages for subsequent use by jobs submitted to the scheduler. You can do that by starting up R interactively in a terminal on either cox and rao and installing the packages as usual.
 
@@ -48,9 +51,11 @@ for information on how to do this.
 
 #  Using the Slurm scheduler on cox and rao
 
-Did I mention that: 
+Please remember that
 
-> \Lightning It is **strictly forbidden** to use cox and rao outside of the Slurm scheduler!\Lightning
+\begin{center}
+\Lightning It is **strictly forbidden** to use cox and rao outside of the Slurm scheduler!\Lightning
+\end{center}
 
 A typical workflow:
 
@@ -149,7 +154,7 @@ The following sections are comments of general usefulness.
 
 ## Installation of R packages
 
-You yourself are in control of which packages you have installed for your own local R environment. There are **no** globally or regularly updated R packages installed on the servers. To use some R package you must install them yourself, and they will be downloaded from a CRAN mirror and installed in ```~/R```. When R gets updated on the servers you sometimes have to reinstall your R packages.
+You yourself are in control of which packages you have installed in your own local R environment. There are **no** globally or regularly updated R packages installed on the servers. To use some R package you must install them yourself, and they will be downloaded from a CRAN mirror and installed in ```~/R```. When R gets updated on the servers you sometimes have to reinstall your R packages.
 
 You can install an R package by starting R interactive and executing the command 
 
