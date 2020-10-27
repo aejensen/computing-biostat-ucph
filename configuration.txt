@@ -42,4 +42,4 @@ sudo yum install cmake gsl-devel protobuf-devel zeromq-devel fftw-devel libgit2-
 sudo yum install hdf5-devel libtiff-devel libjq-devel ImageMagick-c++-devel openssl-devel cyrus-sasl-devel
 sudo yum install poppler-cpp-devel librsvg2-devel udunits2-devel libxslt-devel libsodium-devel
 sudo yum install jq-devel python-devel redland-devel hiredis-devel libssh-devel dieharder-devel mpfr-devel
-sudo yum install gdal-devel gdal gdal-libs
+sudo yum install gdal-devel gdal gdal-libs python27-python-devel python33-python-devel
