@@ -54,23 +54,8 @@ for information on how to do this.
 Please remember that
 
 \begin{center}
-\Lightning It is **strictly forbidden** to use cox and rao outside of the Slurm scheduler!\Lightning
+\Lightning It is \textbf{strictly forbidden} to use cox and rao outside of the Slurm scheduler!\Lightning
 \end{center}
-
-A typical workflow:
-
-1. Write an R program that calculates something a single time and check that it works
-2. Run the program multiple times using the Slurm scheduler 
-3. Collect the results from the individual runs and digest
-
-\begin{Verbatim}[fontsize=\small]
--- myProject
-    -- doSimulation.R
-    -- logs
-    -- output
-
-2 directories, 1 file
-\end{Verbatim}
 
 The following commands are used to communicate with the Slurm scheduler and are probably the only ones that you will need.
 
@@ -80,7 +65,7 @@ The following commands are used to communicate with the Slurm scheduler and are 
 
 * ```sbatch``` - submit a command to Slurm
 
-## View the status of the scheduler
+### View the status of the scheduler {-}
 
 While logged on to either cox or rao you can view the status of the scheduler by executing the command ```squeue``` as in the following example
 \begin{Verbatim}[fontsize=\small]
@@ -92,18 +77,27 @@ bash-4.2$ squeue
             2627_3  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
             2627_4  standard    doSim   xxx999  R       0:24      1 biostatcomp01fl 
 \end{Verbatim}
-from which it can be seen that the user ```xxx999``` is running 5 jobs on ```biostatcomp01fl``` with the name ```doSim```, and they have been running for 24 seconds.
+from which it can be seen that the user ```xxx999``` is running 5 jobs on ```biostatcomp01fl``` with the name ```doSim```, and they have been running for 24 seconds. The job has id 2627 and there are 5 instances running (0, ..., 5).
 
-## Canceling a job on the schedule
+### Canceling a job on the schedule {-}
 
 To cancel the  job ```doSim``` submitted by the user ```xxx999``` you can execute the following command
 
 ```scancel 2627```
 
-You can only cancel your own jobs.
+You can of course only cancel jobs you have submitted yourself.
  
-## Submitting an array job to the scheduler
+### Submitting an array job to the scheduler {-}
 
+The must typical use case of cox/rao and the schedule is to perform \textbf{array jobs}. This is a type job where you want to perform the same calculations a large number of times. This is typical for e.g., simulation studies of bootstrap calculations.
+
+In the most basic form you submit an array job to cox/rao by using the Slurm command
+
+```sbatch -a 1-100 -J 'mySimulation' R CMD BATCH myScript.R```
+
+This will execute the R program in the file ```myScript.R``` 100 times on cox/rao as a job named ```mySimulation``` using all available resources.
+
+## A full example
 Consider a simple R program where we generate some random data and estimate a parameter
 ```{r, eval=FALSE}
 x <- rnorm(1000)
