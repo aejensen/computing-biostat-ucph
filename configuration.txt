@@ -29,6 +29,7 @@ sudo yum install tree
 sudo yum install ncdu
 sudo yum install nano
 sudo yum install finger
+sudo yum install lynx
 
 # R Stuff
 
