@@ -44,3 +44,7 @@ sudo yum install hdf5-devel libtiff-devel libjq-devel ImageMagick-c++-devel open
 sudo yum install poppler-cpp-devel librsvg2-devel udunits2-devel libxslt-devel libsodium-devel
 sudo yum install jq-devel python-devel redland-devel hiredis-devel libssh-devel dieharder-devel mpfr-devel
 sudo yum install gdal-devel gdal gdal-libs python27-python-devel python33-python-devel
+
+# Reconfigure slurm
+## Edit /usr/local/etc/slurm.conf on nodes
+## run sudo scontrol reconfigure
