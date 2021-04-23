@@ -48,3 +48,6 @@ sudo yum install gdal-devel gdal gdal-libs python27-python-devel python33-python
 # Reconfigure slurm
 ## Edit /usr/local/etc/slurm.conf on nodes
 ## run sudo scontrol reconfigure
+
+# Reconnect a node after reboot
+sudo scontrol update nodename=biostatcomp02fl state=idle
