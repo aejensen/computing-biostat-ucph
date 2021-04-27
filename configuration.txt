@@ -46,8 +46,10 @@ sudo yum install jq-devel python-devel redland-devel hiredis-devel libssh-devel 
 sudo yum install gdal-devel gdal gdal-libs python27-python-devel python33-python-devel
 
 # Reconfigure slurm
-## Edit /usr/local/etc/slurm.conf on nodes
-## run sudo scontrol reconfigure
+Configuration files seem to be in two places: /usr/local/slurm-20.02.5/slurm.conf and /usr/local/etc/slurm.conf
+Make sure that they are all identical also across nodes.
+Run scontrol reconfigure to load new configuration.
+Check /var/log/slurm/slurmctld.log that no errors occurred.
 
 # Reconnect a node after reboot
 sudo scontrol update nodename=biostatcomp02fl state=idle
