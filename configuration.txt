@@ -53,3 +53,9 @@ Check /var/log/slurm/slurmctld.log that no errors occurred.
 
 # Reconnect a node after reboot
 sudo scontrol update nodename=biostatcomp02fl state=idle
+
+# How to reset at node that is stuck in CG mode
+sudo /usr/local/bin/scontrol 
+update nodename=name state=resume
+
+check with sinfo afterwards
