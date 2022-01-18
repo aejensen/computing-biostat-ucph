@@ -54,11 +54,9 @@ When you log on to the servers you be at at your home drive `~`. From there you 
 * `~/ucph/groupdir`: common (SAMBA) drives shared across the section (SUN-IFSV-BioStat) and the department (SUN-IFSV-ALLE) - previously O/Q-drives.
 * `/projects/biostat01/people/abc1234`: an NFS drive only available only the servers.
 
-If you're *not* a Windows user, I sugges that you put all your files under `/projects/biostat01/people/abc1234`. If you're a macOS user the exists a solution where you can also mount the `/projects` using `sshfs`.
+If you're *not* a Windows user, it is *highly recommended* that you put all your files under `/projects/biostat01/people/abc1234`. If you're a macOS user there also exists a solution where you can locally mount `/projects` using `sshfs`.
 
 All these drive have a standard KU backup policy.
-
-
 
 ### Software
 
