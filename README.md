@@ -9,7 +9,7 @@ access to a small linux computing cluster consisting of two servers called **cox
 The cluster is
 suitable for simulations and other parallel computing tasks.  In order
 to avoid that multiple users disturb each others computations, all
-computing tasks have to be started using the [Slurm Workload Manager](https://slurm.schedmd.com/documentation.html).
+computing tasks **have** to be started using the [Slurm Workload Manager](https://slurm.schedmd.com/documentation.html).
 
 Since the documentation is quite rich, we below explain roughly how to
 compute@biostat-ucph and provide examples.
