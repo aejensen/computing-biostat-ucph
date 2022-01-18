@@ -175,4 +175,13 @@ The bash script is then run from the command line as follows:
 ```sbatch run-simulation.sh```
 
 **TODO:** Provide an example of running it with bash script. In order to save STDOUT for each job to a specific output file,
-it seems like a bash script is required.
+it seems like a bash script is required. This is a good example
+
+```
+#!/bin/bash
+#SBATCH --job-name=mySimulation
+#SBATCH --output=/dev/null
+#SBATCH --array=1-1000
+
+R CMD BATCH --no-save --no-restore sim.R sim_output_$SLURM_ARRAY_TASK_ID.txt
+```
