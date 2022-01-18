@@ -85,6 +85,9 @@ module load gcc/11.2.0 R/4.1.1
 This is very convenient and highly recommended as you then don't need to specifially loading this software
 when submitting job to the scheduler further on.
 
+**Protip**: KU-IT will automatically make new R versions available when they're reased. If you have something
+automatically loaded in `~/.bash_profile` you need to change it yourself when a new version becomes available.
+
 
 ### R packages
 
@@ -107,7 +110,7 @@ You should have your computation task prepared:
    * saves the results in a result file which should have a task specific filename
 2. A terminal command-line command starting with =sbatch= or a bash script file which is then run from the terminal using =sbatch=.
 
-## Running
+## Runnning a job
 
 The following commands are used to communicate with the Slurm scheduler and are probably the only ones that you will need.
 
