@@ -29,13 +29,16 @@ packages as usual.
 ## Connect to server
 
 Start *vpn* unless you are at work (CSS) and use a wired connection.
-On linux (and Mac?) connect from terminal using **ssh**, e.g.,
+On linux, Mac and Windows you can connect from terminal using **ssh**, e.g.,
 
 ```
-ssh -X abc123@cox
+ssh abc123@cox
 ```
 
-where abc123 should be your KU id. On Windows, use **putty**.
+where abc123 should be your KU id. 
+Previously Windows users connected through Putty, but that is no longer recommended,
+since 1) Windows now has a native ssh client and 2) Putty requires special changes to 
+its standard configuration in order to authenticate correctly with KU-IT.
 
 ## Getting comfortable
 
@@ -61,6 +64,9 @@ you can add the following line to your ~/.bash_profile file
 ```
 module load gcc/11.2.0 R/4.1.1
 ```
+
+This is very convenient as you then do not need to consider specifically loading the software
+when submitting job to the scheduler.
 
 
 ### R packages
