@@ -1,6 +1,6 @@
 # About 
 
-The Section of Biostatistics @ UCPH has
+The Biostat @ UCPH has
 access to a small linux computing cluster which we call
 *biostat-ucph*. The cluster consists of two servers called **cox**
 (official name: ```biostatcomp01fl```) and **rao**
