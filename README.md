@@ -117,7 +117,7 @@ an R code file which we call myScript.R and which has the following
 contents consisting a header that controls the randomness following by the code of what 
 you acutally wish to calculate
 
-```{
+```
 #This is the total number of jobs that you told Slurm to exercute
 number_of_tasks <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_COUNT"))
 #This is an index specific for each job running in parallel
@@ -137,7 +137,6 @@ result <- mean(x)
 
 # Save the results for this task as an individual file in the output folder
 save(result, file = paste('output-', sprintf("%05d", task_id), '.RData', sep = ""))
-}
 ```
 Then, execute the following command from the command line with job name 'mySimulation':
 
