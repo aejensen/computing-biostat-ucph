@@ -28,7 +28,7 @@ packages as usual.
 
 ## Connect to server
 
-Connect to the ucph domain through a vpn connection unless you are at work (CSS) and use a wired connection.
+Connect to the ucph domain through a vpn connection unless you are at work (CSS) and use a connection with a cable in the wall.
 On linux, macOS and Windows you can connect from terminal using ssh, e.g.,
 
 ```
@@ -37,17 +37,16 @@ ssh abc123@cox
 
 where abc123 should be your KU id and you'll then be prompted for your KU password.
 
-Previously Windows users connected through Putty, but that is no longer recommended,
-since 
+Previously Windows users connected through Putty, but that is no longer recommended, as
 
-1) Windows now has a native ssh client
-2) Putty requires special changes to its standard configuration in order to authenticate correctly with the network drives. If you really *want* to use Putty, contact AKJ and he knows a solution.
+1) Windows nowadays has a ssh client build-in
+2) Putty requires certain changes to its standard configuration in order to authenticate correctly with the network drives. If you really *want* to use Putty, contact AKJ and he knows a solution.
 
 ## Getting comfortable
 
 ### Software
 
-When you logon there will not be any software available, but you need to enable it yourself
+When you log on there will not be any software available, but you need to enable it yourself.
 To see an overview of the software available on the servers you can exercute
 
 ```
@@ -81,7 +80,8 @@ use `install.packages()` as usual.
 
 ## Setting up your job
 
-The way the scheduler works is that you only need to think about writing your code as it would work on a *single* data set. When you then submit your code as a job to the scheduler, it will automatically distribute it independently across the cluster in as many instances as you specify.
+The way the scheduler works is that you only need to think about writing your code as it would work on a *single* data set. 
+When you then submit your code as a job to the scheduler, it will automatically distribute it independently across the cluster in as many instances as you specify.
 
 You should have your computation task prepared:
 
@@ -104,21 +104,23 @@ The following commands are used to communicate with the Slurm scheduler and are 
 ## Examples
 
 ### An example of R
-Consider a R program like the following where we generate some random
+Consider a simple R program like the following where we generate some random
 data and estimate a parameter
 
-```{
+```
 x <- rnorm(1000)
 mean(x)
-}
 ```
 
 In order to run this program 100 times in parallel with different random seeds we use
-an R code file which we call =myScript.R= and which has the following
-contents which consists of a header that controls the randomness and the R program:
+an R code file which we call myScript.R and which has the following
+contents consisting a header that controls the randomness following by the code of what 
+you acutally wish to calculate
 
 ```{
+#This is the total number of jobs that you told Slurm to exercute
 number_of_tasks <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_COUNT"))
+#This is an index specific for each job running in parallel
 task_id <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_ID"))
 
 # Set a reproducible random seed for your simulations
@@ -128,26 +130,29 @@ seeds <- sample(1:10^6, size = number_of_tasks, replace = FALSE)
 # Assign the randomly generated seed to the current task
 set.seed(seeds[task_id])
 
-# ---------- Your R code goes between these lines ----------
+# ---------- Your peraonl R code goes between these lines ----------
 x <- rnorm(1000)
 result <- mean(x)
 # -------------------------------------------------------------
 
 # Save the results for this task as an individual file in the output folder
-save(result, file = paste('output/result-', task_id, '.RData', sep = ""))
+save(result, file = paste('output-', sprintf("%05d", task_id), '.RData', sep = ""))
 }
 ```
-Then, run this from the command line with job name 'mySimulation':
+Then, execute the following command from the command line with job name 'mySimulation':
 
 ```sbatch -a 1-100 -J 'mySimulation' R CMD BATCH myScript.R```
 
-or use a bash script called for example =run-simulation.sh= which
+or use a bash script called for example run-simulation.sh which
 specifies more options, see e.g., [slurm
 examples](https://computing.sas.upenn.edu/gpc/job/slurm) for examples.
 
 The bash script is then run from the command line as follows:
 
 ```sbatch run-simulation.sh```
+
+**TODO:** Provide an example bash script. In order to save STDOUT for each job to a specific output file,
+it seems like a bash script is required.
 
 # Misc
 
