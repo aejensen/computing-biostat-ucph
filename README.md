@@ -73,6 +73,17 @@ module load gcc/11.2.0 R/4.1.1
 This is very convenient and highly recommended as you then don't need to specifially loading this software
 when submitting job to the scheduler further on.
 
+### Network drives
+
+When you log on to the servers you be at at your home drive `~`. From there you have access to
+
+* `~/ucph/hdir`: your personal (SAMBA) drive (previously P-drive). This is be accessible across all platforms (Windows, macOS, linux).
+* `~/ucph/groupdir`: common (SAMBA) drives shared across the section (SUN-IFSV-BioStat) and the department (SUN-IFSV-ALLE) - previously O/Q-drives.
+* `/projects/biostat01/people/abc1234`: an NFS drive only available only the servers.
+
+If you're *not* a Windows user, I sugges that you put all your files under `/projects/biostat01/people/abc1234`. If you're a macOS user the exists a solution where you can also mount the `/projects` using `sshfs`.
+
+All these drive have a standard KU backup policy.
 
 ### R packages
 
