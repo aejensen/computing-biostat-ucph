@@ -28,14 +28,15 @@ packages as usual.
 
 ## Connect to server
 
-Start *vpn* unless you are at work (CSS) and use a wired connection.
-On linux, Mac and Windows you can connect from terminal using **ssh**, e.g.,
+Connect to the ucph domain through a vpn connection unless you are at work (CSS) and use a wired connection.
+On linux, macOS and Windows you can connect from terminal using ssh, e.g.,
 
 ```
 ssh abc123@cox
 ```
 
-where abc123 should be your KU id. 
+where abc123 should be your KU id and you'll then be prompted for your KU password.
+
 Previously Windows users connected through Putty, but that is no longer recommended,
 since 1) Windows now has a native ssh client and 2) Putty requires special changes to 
 its standard configuration in order to authenticate correctly with the network drives.
@@ -44,36 +45,37 @@ its standard configuration in order to authenticate correctly with the network d
 
 ### Modules
 
-The software on the servers needs to be enabled using the module terminal command.  
-To see an overview of the software installed on the servers you can exercute
+When you logon there will not be any software available, but you need to enable it yourself
+To see an overview of the software available on the servers you can exercute
+
 ```
 module avail
 ```
 
-Most users would probably like to use the latest version of R and the requires gcc module.
-Therefore, in order to use **R** you need to load the following 2 modules:
+Most users would probably like to use the latest version of R and the version of gcc
+which it depends on. Therefore, in order to use R you need to load the following 2 modules:
 
 ```
 module load gcc/11.2.0
 module load R/4.1.2
 ```
 
-If you want this to be loaded automatic everything you log on to the servers,
+**Protip:** If you want this to be loaded automatic everytime you log on to the servers,
 you can add the following line to your ~/.bash_profile file
 
 ```
 module load gcc/11.2.0 R/4.1.1
 ```
 
-This is very convenient as you then do not need to consider specifically loading the software
-when submitting job to the scheduler.
+This is very convenient as you then don't need to specifially loading this software
+when submitting job to the scheduler further on.
 
 
 ### R packages
 
 Ensure that all R packages that your program needs are installed on
-the server. To install a package you can start **R** interactively and
-use =install.packages()= as usual. 
+the server. To install a package you can start R interactively and
+use `install.packages()` as usual. 
 
 ## Setup
 
