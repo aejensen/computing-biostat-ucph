@@ -35,8 +35,9 @@ on TensorFlow. **[TODO: We are still trying to understand this]**
 
 ## Connect to server
 
-Connect to the ucph domain through a vpn connection unless you are at work (CSS) and use a connection with a cable in the wall.
-On linux, macOS and Windows you can connect from terminal using ssh, e.g.,
+Connect to the UCPH domain through a VN connection unless you are at work 
+(CSS) and use a connection with a cable in the wall. On linux, macOS and 
+Windows you can connect from terminal using ssh, e.g.,
 
 ```
 ssh abc123@cox
