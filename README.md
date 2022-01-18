@@ -85,7 +85,7 @@ module load gcc/11.2.0 R/4.1.1
 This is very convenient and highly recommended as you then don't need to specifially loading this software
 when submitting job to the scheduler further on.
 
-**Protip**: KU-IT will automatically make new R versions available when they're reased. If you have something
+**Protip**: KU-IT will automatically make new R versions available when they're released. If you have something
 automatically loaded in `~/.bash_profile` you need to change it yourself when a new version becomes available.
 
 
