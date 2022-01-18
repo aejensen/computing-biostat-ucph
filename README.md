@@ -43,7 +43,7 @@ its standard configuration in order to authenticate correctly with the network d
 
 ## Getting comfortable
 
-### Modules
+### Software
 
 When you logon there will not be any software available, but you need to enable it yourself
 To see an overview of the software available on the servers you can exercute
