@@ -3,8 +3,8 @@
 The Section of Biostatistics at the University of Copenhagen has
 access to a small linux computing cluster which we call
 *biostat-ucph*. The cluster consists of two servers called **cox**
-(official name: ```biostatcomp01fl.sund.root.ku.dk```) and **rao**
-(official name: ```biostatcomp02fl.sund.root.ku.dk```). The cluster is
+(official name: ```biostatcomp01fl```) and **rao**
+(official name: ```biostatcomp02fl```). The cluster is
 suitable for simulations and other parallel computing tasks.  In order
 to avoid that multiple users disturb each others computations, all
 computing tasks have to be started using the [Slurm Workload Manager](https://slurm.schedmd.com/documentation.html).
