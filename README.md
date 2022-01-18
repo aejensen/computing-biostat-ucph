@@ -1,6 +1,6 @@
 # About 
 
-The Section of Biostatistics at the University of Copenhagen has
+The Section of Biostatistics @ UCPH has
 access to a small linux computing cluster which we call
 *biostat-ucph*. The cluster consists of two servers called **cox**
 (official name: ```biostatcomp01fl```) and **rao**
