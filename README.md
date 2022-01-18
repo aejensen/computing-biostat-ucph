@@ -4,7 +4,10 @@ The Biostat @ UCPH has
 access to a small linux computing cluster which we call
 *biostat-ucph*. The cluster consists of two servers called **cox**
 (official name: ```biostatcomp01fl```) and **rao**
-(official name: ```biostatcomp02fl```). The cluster is
+(official name: ```biostatcomp02fl```). Each server has 128 cores and
+512 GB of memory.
+
+The cluster is
 suitable for simulations and other parallel computing tasks.  In order
 to avoid that multiple users disturb each others computations, all
 computing tasks have to be started using the [Slurm Workload Manager](https://slurm.schedmd.com/documentation.html).
