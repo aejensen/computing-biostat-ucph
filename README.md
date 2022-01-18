@@ -1,8 +1,7 @@
 # About 
 
 Biostat @ UCPH has
-access to a small linux computing cluster which we call
-*biostat-ucph*. The cluster consists of two servers called **cox**
+access to a small linux computing cluster consisting of two servers called **cox**
 (official name: ```biostatcomp01fl```) and **rao**
 (official name: ```biostatcomp02fl```). Each server has 128 cores and
 512 GB of memory.
