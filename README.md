@@ -26,6 +26,11 @@ submitted to the scheduler. You can do that by starting up R
 interactively in a terminal on either cox and rao and installing the
 packages as usual.
 
+You should be **aware** that some R packages will automatically 
+spawn a lot of threds eventhough you're only executing a single job.
+This is e.g. the case for the keras-packages and other stuff depending
+on TensorFlow. **[TODO: We are still trying to understand this]**
+
 # Usage
 
 ## Connect to server
@@ -148,7 +153,7 @@ seeds <- sample(1:10^6, size = number_of_tasks, replace = FALSE)
 # Assign the randomly generated seed to the current task
 set.seed(seeds[task_id])
 
-# ---------- Your peraonl R code goes between these lines ----------
+# ---------- Your personal R code goes between these lines ----------
 x <- rnorm(1000)
 result <- mean(x)
 # -------------------------------------------------------------
@@ -168,10 +173,5 @@ The bash script is then run from the command line as follows:
 
 ```sbatch run-simulation.sh```
 
-**TODO:** Provide an example bash script. In order to save STDOUT for each job to a specific output file,
+**TODO:** Provide an example of running it with bash script. In order to save STDOUT for each job to a specific output file,
 it seems like a bash script is required.
-
-# Misc
-
-The file configuration.txt contains information on what has been
-installed on the servers by Andreas KJ. 
