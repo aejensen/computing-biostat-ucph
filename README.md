@@ -76,7 +76,7 @@ module load R/4.1.2
 ```
 
 **Protip:** If you want this to be perfomed automatically everytime you log on to any of servers,
-you can add the following line to your ~/.bash_profile file
+you can add the following line to your `~/.bash_profile` file
 
 ```
 module load gcc/11.2.0 R/4.1.1
