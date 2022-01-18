@@ -79,7 +79,9 @@ Ensure that all R packages that your program needs are installed on
 the server. To install a package you can start R interactively and
 use `install.packages()` as usual. 
 
-## Setup
+## Setting up your job
+
+The way the scheduler works is that you only need to think about writing your code as it would work on a *single* data set. When you then submit your code as a job to the scheduler, it will automatically distribute it independently across the cluster in as many instances as you specify.
 
 You should have your computation task prepared:
 
