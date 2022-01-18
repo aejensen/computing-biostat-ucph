@@ -89,7 +89,8 @@ when submitting job to the scheduler further on.
 ### R packages
 
 Ensure that all R packages that your program needs are installed on
-the server. To install a package you can start R interactively and
+the server. There are no packages automatically available for you.
+To install a package you can start R interactively and
 use `install.packages()` as usual. 
 
 ## Setting up your job
