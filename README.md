@@ -81,15 +81,17 @@ The following commands are used to communicate with the Slurm scheduler and are 
 Consider a R program like the following where we generate some random
 data and estimate a parameter
 
-```{r, eval=FALSE} 
+```{
 x <- rnorm(1000)
-mean(x) ```
+mean(x)
+}
+```
 
 In order to run this program 100 times in parallel with different random seeds we use
 an R code file which we call =myScript.R= and which has the following
 contents which consists of a header that controls the randomness and the R program:
 
-```
+```{
 number_of_tasks <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_COUNT"))
 task_id <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_ID"))
 
@@ -107,6 +109,7 @@ result <- mean(x)
 
 # Save the results for this task as an individual file in the output folder
 save(result, file = paste('output/result-', task_id, '.RData', sep = ""))
+}
 ```
 Then, run this from the command line with job name 'mySimulation':
 
