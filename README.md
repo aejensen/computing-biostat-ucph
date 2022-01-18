@@ -42,7 +42,7 @@ where abc123 should be your KU id and you'll then be prompted for your KU passwo
 Previously Windows users connected through Putty, but that is no longer recommended, as
 
 1) Windows nowadays has a ssh client build-in
-2) Putty requires certain changes to its standard configuration in order to authenticate correctly with the network drives. If you really *want* to use Putty, contact AKJ and he knows a solution.
+2) Putty requires certain changes to its standard configuration in order to authenticate correctly with the network drives. If you **really** want to use Putty, contact AKJ and he knows a solution.
 
 ## Getting comfortable
 
