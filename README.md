@@ -38,7 +38,7 @@ ssh abc123@cox
 where abc123 should be your KU id. 
 Previously Windows users connected through Putty, but that is no longer recommended,
 since 1) Windows now has a native ssh client and 2) Putty requires special changes to 
-its standard configuration in order to authenticate correctly with KU-IT.
+its standard configuration in order to authenticate correctly with the network drives.
 
 ## Getting comfortable
 
