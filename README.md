@@ -24,7 +24,7 @@ submitted to the scheduler. You can do that by starting up R
 interactively in a terminal on either cox and rao and installing the
 packages as usual.
 
-# Usage: compute@biostat-ucph
+# Usage
 
 ## Connect to server
 
