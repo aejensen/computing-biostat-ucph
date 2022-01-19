@@ -17,7 +17,7 @@ Questions and help requests should be posed to those who have tried
 before. You can also get write access to this github repository and
 share your experience and examples.
 
-# Important
+# Important ground rules
 
 It is *not* allowed to run R interactively on the servers *expect*
 when you need to install R packages for subsequent use by jobs
