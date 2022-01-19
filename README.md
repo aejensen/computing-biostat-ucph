@@ -26,6 +26,12 @@ submitted to the scheduler. You can do that by starting up R
 interactively in a terminal on either cox and rao and installing the
 packages as usual.
 
+Do *not* run jobs that are using `mclapply` or similar features
+from the `parallel` packages, as you are then going behind the scenes
+of the schedular and messing up the ressource allocation. You should
+write your script as a single job and then let the scheduler handle
+the parallelization - se example later.
+
 You should be **aware** that some R packages will automatically 
 spawn a lot of threds eventhough you're only executing a single job.
 This is e.g. the case for the keras-packages and other stuff depending
