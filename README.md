@@ -186,3 +186,14 @@ it seems like a bash script is required. This is a good example
 
 R CMD BATCH --no-save --no-restore sim.R sim_output_$SLURM_ARRAY_TASK_ID.txt
 ```
+
+## Jobs with a long runtime
+
+The scheduler is configured with two queues (called partitions in Slurm lingo): a `standard` partition running on both cox and rao, and a `long` partition running only on rao. The difference between the two is that jobs taking longer than four hours (not in total but for each individual job you're running) will automatically be killed in the `standard` partition, whereas jobs can run infinitely long in the `long` partition.
+
+If you don't specify anything, you are automatically using the `standard` partition. To run jobs on the `long` partition you specify it as `--partition=long` on the command line or as
+
+```
+#SBATCH --partition=long
+```
+in a Slurm script.
