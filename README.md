@@ -33,15 +33,17 @@ write your script as a single job and then let the scheduler handle
 the parallelization - se example later.
 
 You should be **aware** that some R packages will automatically 
-spawn a lot of threds eventhough you're only executing a single job.
-This is e.g. the case for the keras-packages and other stuff depending
-on TensorFlow. **[TODO: We are still trying to understand this]**
+spawn a lot of threads even though you're only executing a single job.
+This is e.g., the case for the keras packages and other stuff depending
+on TensorFlow and numpy in Python. 
+
+**[TODO: We are still trying to understand how this works]**
 
 # Usage
 
 ## Connect to server
 
-Connect to the UCPH domain through a VN connection unless you are at work 
+Connect to the UCPH domain through a VPN connection unless you are at work 
 (CSS) and use a connection with a cable in the wall. On linux, macOS and 
 Windows you can connect from terminal using ssh, e.g.,
 
@@ -54,26 +56,28 @@ where abc123 should be your KU id and you'll then be prompted for your KU passwo
 Previously Windows users connected through Putty, but that is no longer recommended, as
 
 1) Windows nowadays has a ssh client build-in
-2) Putty requires certain changes to its standard configuration in order to authenticate correctly with the network drives. If you **really** want to use Putty, contact AKJ and he knows a solution.
+2) Putty requires certain changes to its standard configuration in order to authenticate correctly with the network drives. 
+
+If you **really** want to use Putty, contact AKJ and he knows a solution.
 
 ## Getting comfortable
 
 ### Network drives
 
-When you log on to the servers you be at at your home drive `~`. From there you have access to
+When you log on to the servers you be at your home directory `~`. From there you have access to
 
-* `~/ucph/hdir`: your personal (SAMBA) drive (previously P-drive). This is be accessible across all platforms (Windows, macOS, linux).
+* `~/ucph/hdir`: your personal (SAMBA) drive (previously P-drive). This is accessible across all platforms (Windows, macOS, linux).
 * `~/ucph/groupdir`: common (SAMBA) drives shared across the section (SUN-IFSV-BioStat) and the department (SUN-IFSV-ALLE) - previously O/Q-drives.
 * `/projects/biostat01`: an NFS drive only available only the servers.
 
 If you're *not* a Windows user, it is *highly recommended* that you put all your files under `/projects/biostat01/people/abc1234` where `abc1234` is your username. If you're a macOS user there also exists a solution where you can locally mount `/projects` using `sshfs`.
 
-All these drive have a standard KU backup policy.
+All these network drives have a standard KU backup policy.
 
 ### Software
 
 When you log on there will not be any software available, but you need to enable it yourself.
-To see an overview of the software available on the servers you can exercute
+To see a list of the software available on the servers you can execute
 
 ```
 module avail
@@ -87,14 +91,14 @@ module load gcc/11.2.0
 module load R/4.1.2
 ```
 
-**Protip:** If you want this to be perfomed automatically everytime you log on to any of servers,
+**Protip:** If you want this to be performed automatically every time you log on to any of servers,
 you can add the following line to your `~/.bash_profile` file
 
 ```
 module load gcc/11.2.0 R/4.1.1
 ```
 
-This is very convenient and highly recommended as you then don't need to specifially loading this software
+This is very convenient and highly recommended as you then don't need to specifically loading this software
 when submitting job to the scheduler further on.
 
 **Protip**: KU-IT will automatically make new R versions available when they're released. If you have something
@@ -105,8 +109,7 @@ automatically loaded in `~/.bash_profile` you need to change it yourself when a 
 
 Ensure that all R packages that your program needs are installed on
 the server. There are no packages automatically available for you.
-To install a package you can start R interactively and
-use `install.packages()` as usual. 
+To install a package, you can start R interactively and use `install.packages()` as usual. 
 
 ## Setting up your job
 
@@ -115,21 +118,21 @@ When you then submit your code as a job to the scheduler, it will automatically 
 
 You should have your computation task prepared:
 
-1. A file with code that should be run repeatedly (in parallel) and everytime it is run does the following:
+1. A file with code that should be run repeatedly (in parallel) and every time it is run does the following:
    * controls the random seed if necessary
    * reads in data, or simulates data
-   * runs the analysis (important: each analysis should only use a single compuation core and not parallelize!) 
+   * runs the analysis (important: each analysis should only use a single computation core and not parallelize!) 
    * saves the results in a result file which should have a task specific filename
-2. A terminal command-line command starting with =sbatch= or a bash script file which is then run from the terminal using =sbatch=.
-3. A program that collects the results from the parallel analyses
+2. A terminal command-line command started with `sbatch` or by bash script file which is then run from the terminal using `sbatch`.
+3. A program that collects the results from the parallel analyses.
 
-## Runnning a job
+## Executing a job
 
 The following commands are used to communicate with the Slurm scheduler and are probably the only ones that you will need.
 
 * ```squeue``` - view information about jobs located in the Slurm scheduler
 * ```scancel``` - cancel a job running on Slurm
-* ```sbatch``` - submit a command to Slurm
+* ```sbatch``` - submit a job to Slurm
 
 
 ## Examples
@@ -143,13 +146,13 @@ x <- rnorm(1000)
 mean(x)
 ```
 
-In order to run this program 100 times in parallel with different random seeds we use
+To run this program 100 times in parallel with different random seeds we use
 an R code file which we call myScript.R and which has the following
-contents consisting a header that controls the randomness following by the code of what 
-you acutally wish to calculate
+contents consisting of a header that controls the randomness following by the code of what 
+you actually wish to calculate.
 
 ```
-#This is the total number of jobs that you told Slurm to exercute
+#This is the total number of jobs that you told Slurm to execute
 number_of_tasks <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_COUNT"))
 #This is an index specific for each job running in parallel
 task_id <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_ID"))
