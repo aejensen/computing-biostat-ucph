@@ -115,6 +115,7 @@ You should have your computation task prepared:
    * runs the analysis (important: each analysis should only use a single compuation core and not parallelize!) 
    * saves the results in a result file which should have a task specific filename
 2. A terminal command-line command starting with =sbatch= or a bash script file which is then run from the terminal using =sbatch=.
+3. A program that collects the results from the parallel analyses
 
 ## Runnning a job
 
