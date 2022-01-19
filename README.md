@@ -48,7 +48,8 @@ Windows you can connect from terminal using ssh, e.g.,
 ssh abc123@cox
 ```
 
-where abc123 should be your KU id and you'll then be prompted for your KU password. If you have a KU-computer (Windows or macOS) you only need to write `ssh cox`, as it automatically recognizes you.
+where abc123 should be your KU id and you'll then be prompted for your KU password. 
+If you have a KU-computer (Windows or macOS) you only need to execute `ssh cox`, as it automatically recognizes you.
 
 Previously Windows users connected through Putty, but that is no longer recommended, as
 
