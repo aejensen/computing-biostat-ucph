@@ -189,10 +189,11 @@ it seems like a bash script is required. This is a good example
 #!/bin/bash
 #SBATCH --job-name=mySimulation
 #SBATCH --output=/dev/null
-#SBATCH --array=1-1000
+#SBATCH --array=1-100
 
-R CMD BATCH --no-save --no-restore sim.R sim_output_$SLURM_ARRAY_TASK_ID.txt
+R CMD BATCH --no-save --no-restore myScript.R output_$SLURM_ARRAY_TASK_ID.txt
 ```
+**[TODO: If anyone knows how to submit a job from the commanline where it still recognizes $SLURM_ARRAY_TASK_ID and environment variable, please let us know.]**
 
 ## Jobs with a long runtime
 
