@@ -1,4 +1,4 @@
-# About 
+# Biostat @ UCPH computing facilities
 
 Biostat @ UCPH has
 access to a small linux computing cluster consisting of two servers called **cox**
