@@ -185,6 +185,18 @@ Then the standard output for each job will be saved as `mySim-stdout-1.txt`, ...
 
 To get more flexibility and requirement of the execution, you can also specify your job in a Slurm script. See e.g., [slurm examples](https://computing.sas.upenn.edu/gpc/job/slurm) for examples and more options.
 
+After you have submitted your job, you'll see something like this in the terminal
+```
+Submitted batch job 312191
+```
+
+To check if your job is actually running, you can execute `squeue`.
+
+If you want to cancel your job, you can run `scancel 312191` where the number needs to correspond to the job that you have submitted.
+
+Note that it can take a little while for a canceled job to stop running.
+
+
 ## Jobs with a long runtime
 
 The scheduler is configured with two queues (called partitions in Slurm lingo): a `standard` partition running on both cox and rao, and a `long` partition running only on rao. The difference between the two is that jobs taking longer than four hours (not in total but for each individual job you're running) will automatically be killed in the `standard` partition, whereas jobs can run infinitely long in the `long` partition.
