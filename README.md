@@ -209,7 +209,7 @@ in a Slurm script.
 
 # Other servers
 
-Biostat also have two additional servers, **doob** (official name: `biostatcomp03fl`) and **rasch** (official name: `biostatcomp03fl`). These are virtual servers with only six cores and a limited amount of memory. These servers are **not** to be used for high performance computing but rather serves as terminal servers, which you can use for e.g. assessing the network drives, synchronizing files, compiling LaTeX or other stuff.
+Biostat also have two additional servers, **doob** (official name: `biostatcomp03fl`) and **rasch** (official name: `biostatcomp03fl`). These are virtual servers with only six cores and a limited amount of memory. These servers are **not** to be used for high performance computing but rather as traditional terminal servers, which you can use for e.g. assessing the network drives, synchronizing files, compiling LaTeX or other stuff.
 
 LaTeX can be loaded as a software module by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
 
