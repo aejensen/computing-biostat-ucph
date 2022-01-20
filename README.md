@@ -193,7 +193,12 @@ it seems like a bash script is required. This is a good example
 
 R CMD BATCH --no-save --no-restore myScript.R output_$SLURM_ARRAY_TASK_ID.txt
 ```
-**[TODO: If anyone knows how to submit a job from the commanline where it still recognizes $SLURM_ARRAY_TASK_ID and environment variable, please let us know.]**
+To run the same job from command line, you can use `Rscript` which does not direct STDOUT to `.Rout` files by default. If the job contains an array, make sure you *wrap* the programme command such that it is interpreted as a bash script.
+
+```
+sbatch -J "mySimulation" -o output_%a.txt --array=1-100 --wrap="Rscript myScript.R"
+```
+`%a` will be replaced by the value of `SLURM_ARRAY_TASK_ID`. Read the [documentation](https://slurm.schedmd.com/sbatch.html) of `sbatch` command for more details.
 
 ## Jobs with a long runtime
 
