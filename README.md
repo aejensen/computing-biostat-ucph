@@ -70,7 +70,9 @@ When you log on to the servers you be at your home directory `~`. From there you
 
 If you're *not* a Windows user, it is *highly recommended* that you put all your files under `/projects/biostat01/people/abc1234` where `abc1234` is your username. If you're a macOS user there also exists a solution where you can locally mount `/projects` using `sshfs`.
 
-All these network drives have a standard KU backup policy.
+**Note**: `~` has a quota of 10 GB, so it's not suitable for storing large amounts of data or simulation results. Use `~/ucph/hdir` or `/projects/biostat01/people/abc123` instead.
+
+All network drives have a standard KU backup policy.
 
 ### Software
 
