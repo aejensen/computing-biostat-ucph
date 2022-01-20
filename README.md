@@ -2,9 +2,9 @@
 
 Biostat @ UCPH has
 access to a small linux computing cluster consisting of two servers called **cox**
-(official name: ```biostatcomp01fl```) and **rao**
-(official name: ```biostatcomp02fl```). Each server has 128 cores and
-512 GB of memory. The cluster is suitable for simulations and other parallel computing tasks.  
+(official name: `biostatcomp01fl`) and **rao** (official name: `biostatcomp02fl`). 
+Each server has 128 cores and 512 GB of memory. The cluster is suitable for simulations 
+and other parallel computing tasks.  
 
 In order to avoid that multiple users disturb each others computations and to
 ensure a fair allocation of our ressources, all computing tasks **have** to be 
@@ -205,3 +205,11 @@ If you don't specify anything, you are automatically using the `standard` partit
 #SBATCH --partition=long
 ```
 in a Slurm script.
+
+
+# Other servers
+
+Biostat also have two additional servers, **doob** (official name: `biostatcomp03fl`) and **rasch** (official name: `biostatcomp03fl`). These are virtual servers with only six cores and a limited amount of memory. These servers are **not** to be used for high performance computing but rather serves as terminal servers, which you can use for e.g. assessing the network drives, synchronizing files, compiling LaTeX or other stuff.
+
+LaTeX can be loaded as a software module by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
+
