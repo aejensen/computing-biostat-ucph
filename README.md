@@ -176,7 +176,7 @@ Then, execute the following command from the command line with job name 'mySimul
 
 ```sbatch -a 1-100 -J 'mySimulation' R CMD BATCH myScript.R```
 
-**Protip**: It's a good idea to add the options `--no-save --no-restore` to `R` since you'll be saving the files manually, and it can cause some issues when trying to restore an R session in a parallel environment.
+**Protip**: It's a good idea to add the options `--no-save --no-restore` to R since you'll be saving the files manually, and it can cause some issues when trying to restore an R session in a parallel environment.
 
 To get more flexibility over the execution, you can also specify your job in a Slurm script (in this example called `run-sumulation.sh`) which you then execute as `sbatch run-simulation.sh`. A starting point for such a script is
 
