@@ -194,7 +194,7 @@ To check if your job is actually running, you can execute `squeue`.
 
 If you want to cancel your job, you can run `scancel 312191` where the number needs to correspond to the job that you have submitted.
 
-Note that it can take a little while for a canceled job to stop running.
+Note, that it can take a little while for a canceled job to stop running. Check by executing `squeue`.
 
 
 ## Jobs with a long runtime
