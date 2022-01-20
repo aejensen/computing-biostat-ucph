@@ -174,16 +174,9 @@ Then, execute the following command from the command line with job name 'mySimul
 
 ```sbatch -a 1-100 -J 'mySimulation' R CMD BATCH myScript.R```
 
-or use a bash script called for example run-simulation.sh which
-specifies more options, see e.g., [slurm
-examples](https://computing.sas.upenn.edu/gpc/job/slurm) for examples.
+**Protip**: It's a good idea to add the options `--no-save --no-restore` to `R` since you'll be saving the files manually, and it can cause some issues when trying to restore an R session in a parallel environment.
 
-The bash script is then run from the command line as follows:
-
-```sbatch run-simulation.sh```
-
-**TODO:** Provide an example of running it with bash script. In order to save STDOUT for each job to a specific output file,
-it seems like a bash script is required. This is a good example
+To get more flexibility over the execution, you can also specify your job in a Slurm script (in this example called `run-sumulation.sh`) which you then execute as `sbatch run-simulation.sh`. A starting point for such a script is
 
 ```
 #!/bin/bash
@@ -193,7 +186,12 @@ it seems like a bash script is required. This is a good example
 
 R CMD BATCH --no-save --no-restore myScript.R output_$SLURM_ARRAY_TASK_ID.txt
 ```
+
+See e.g., [slurm examples](https://computing.sas.upenn.edu/gpc/job/slurm) for examples and more options. The standard output for each job will be saved as a text file.
+
 **[TODO: If anyone knows how to submit a job from the commanline where it still recognizes $SLURM_ARRAY_TASK_ID and environment variable, please let us know.]**
+
+
 
 ## Jobs with a long runtime
 
