@@ -193,7 +193,7 @@ See e.g., [slurm examples](https://computing.sas.upenn.edu/gpc/job/slurm) for ex
 
 **[TODO: If anyone knows how to submit a job from the commanline where it still recognizes $SLURM_ARRAY_TASK_ID and environment variable, please let us know.]**
 
-
+**Note**: If you don't automatically load software in your `~/.bash_profile`, you need to include a `module load` line in your Slurm script before calling R.
 
 ## Jobs with a long runtime
 
