@@ -147,7 +147,7 @@ mean(x)
 ```
 
 To run this program 100 times in parallel with different random seeds we use
-an R code file which we call myScript.R and which has the following
+an R code file which we call `mySim.R` and which has the following
 contents consisting of a header that controls the randomness following by the code of what 
 you actually wish to calculate.
 
@@ -170,30 +170,20 @@ result <- mean(x)
 # -------------------------------------------------------------
 
 # Save the results for this task as an individual file in the output folder
-save(result, file = paste('output-', sprintf("%05d", task_id), '.RData', sep = ""))
-```
-Then, execute the following command from the command line with job name 'mySimulation':
-
-```sbatch -a 1-100 -J 'mySimulation' R CMD BATCH myScript.R```
-
-**Protip**: It's a good idea to add the options `--no-save --no-restore` to R since you'll be saving the files manually, and it can cause some issues when trying to restore an R session in a parallel environment.
-
-To get more flexibility over the execution, you can also specify your job in a Slurm script (in this example called `run-sumulation.sh`) which you then execute as `sbatch run-simulation.sh`. A starting point for such a script is
-
-```
-#!/bin/bash
-#SBATCH --job-name=mySimulation
-#SBATCH --output=/dev/null
-#SBATCH --array=1-100
-
-R CMD BATCH --no-save --no-restore myScript.R output_$SLURM_ARRAY_TASK_ID.txt
+save(result, file = paste0('result-', sprintf("%05d", task_id), '.RData')
 ```
 
-See e.g., [slurm examples](https://computing.sas.upenn.edu/gpc/job/slurm) for examples and more options. The standard output for each job will be saved as a text file.
+Then, execute the following command
 
-**[TODO: If anyone knows how to submit a job from the commanline where it still recognizes $SLURM_ARRAY_TASK_ID and environment variable, please let us know.]**
+```
+sbatch -J "mySim" -o mySim_stdout_%a.txt --array=1-100 --wrap="Rscript mySim.R"
+```
 
-**Note**: If you don't automatically load software in your `~/.bash_profile`, you need to include a `module load` line in your Slurm script before calling R.
+Then the standard output for each job will be saved as `mySim_stdout_1.txt`, ..., `mySim_stdout_100.txt` and the results of the computations will be saved as `res_test-00001.RData`, ..., `res_test-00100.RData`.
+
+**TODO**: Will there still be issues with `--no-save --no-restore` when using `Rscript` like the above compared to `R CMD BATCH`?
+
+To get more flexibility and requirement of the execution, you can also specify your job in a Slurm script. See e.g., [slurm examples](https://computing.sas.upenn.edu/gpc/job/slurm) for examples and more options.
 
 ## Jobs with a long runtime
 
