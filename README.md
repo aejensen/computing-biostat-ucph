@@ -170,7 +170,7 @@ result <- mean(x)
 # -------------------------------------------------------------
 
 # Save the results for this task as an individual file in the output folder
-save(result, file = paste0('result-', sprintf("%05d", task_id), '.RData')
+save(result, file = paste0('mySim_res_', sprintf("%05d", task_id), '.RData')
 ```
 
 Then, execute the following command
@@ -179,7 +179,7 @@ Then, execute the following command
 sbatch -J "mySim" -o mySim_stdout_%a.txt --array=1-100 --wrap="Rscript mySim.R"
 ```
 
-Then the standard output for each job will be saved as `mySim_stdout_1.txt`, ..., `mySim_stdout_100.txt` and the results of the computations will be saved as `res_test-00001.RData`, ..., `res_test-00100.RData`.
+Then the standard output for each job will be saved as `mySim_stdout_1.txt`, ..., `mySim_stdout_100.txt`, and the results of the computations will be saved as the files `mySim_res_00001.RData`, ..., `mySim_res_00100.RData`.
 
 **TODO**: Will there still be issues with `--no-save --no-restore` when using `Rscript` like the above compared to `R CMD BATCH`?
 
