@@ -209,7 +209,7 @@ If you don't specify anything, you are automatically using the `standard` partit
 in a Slurm script.
 
 
-# Other servers
+# Additional linux servers
 
 Biostat also have two additional servers, **doob** (official name: `biostatcomp03fl`) and **rasch** (official name: `biostatcomp03fl`). These are virtual servers with only six cores and a limited amount of memory. These servers are **not** to be used for high performance computing but rather as traditional terminal servers, which you can use for e.g. assessing the network drives, synchronizing files, compiling LaTeX or other stuff.
 
