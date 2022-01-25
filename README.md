@@ -6,6 +6,9 @@ access to a small linux computing cluster consisting of two servers called **cox
 Each server has 128 cores and 512 GB of memory. The cluster is suitable for simulations 
 and other parallel computing tasks.  
 
+If you submit a job to the cluster you are thus capable of running 256 calculations
+simulataneously (see section later about jobs with a long execution time).
+
 In order to avoid that multiple users disturb each others computations and to
 ensure a fair allocation of our ressources, all computing tasks **have** to be 
 started using the [Slurm Workload Manager](https://slurm.schedmd.com/documentation.html).
