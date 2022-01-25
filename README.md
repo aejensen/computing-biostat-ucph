@@ -189,13 +189,13 @@ After you have submitted your job, you'll see something like this in the termina
 ```
 Submitted batch job 312191
 ```
-where the number if the ID of your job.
+where the number is the ID of your job.
 
-To check if your job is actually running, you can execute `squeue`.
+To check if your job is actually running, you can execute `squeue` and you'll see a list of all running and scheduled jobs.
 
-If you want to cancel a job that you have set in the queue, you can run `scancel xxxxxx` where `xxxxxx` is the job's ID number.
+If you wish to cancel a job that is either currently running or is in the queue, you can run `scancel xxxxxx` where `xxxxxx` is the job's ID number. You can of course only cancel jobs submitted by yourself.
 
-Note, that it can take a little while for a canceled job to stop running. Check by executing `squeue`.
+Note, that it can take a little while for running job to be fully canceled. Check by executing `squeue`.
 
 
 ## Jobs with a long runtime
