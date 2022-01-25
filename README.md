@@ -201,7 +201,7 @@ Note, that it can take a little while for a canceled job to stop running. Check 
 
 The scheduler is configured with two queues (called partitions in Slurm lingo): a `standard` partition running on both cox and rao, and a `long` partition running only on rao. The difference between the two is that jobs taking longer than four hours (not in total but for each individual job you're running) will automatically be killed in the `standard` partition, whereas jobs can run infinitely long in the `long` partition. If you don't specify anything, you are automatically using the `standard` partition. 
 
-To submit a job to the `long` paratition, you need to add the following to your submission `--partition=long`.
+To submit a job to the `long` paratition, you need to add the following to your sbatch command `--partition=long`.
 
 
 # Additional linux servers
