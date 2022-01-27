@@ -221,7 +221,7 @@ biostat@UCPH also have two additional servers
 * **doob** (official name: `biostatcomp03fl`) 
 * **rasch** (official name: `biostatcomp03fl`)
  
-These are virtual servers with only six cores and a limited amount of memory (12 GB). These servers are **not** meant to be used for high performance computing but rather as traditional terminal servers, which you can use for e.g. assessing the network drives, synchronizing files, compiling LaTeX or other stuff.
+These are virtual servers with only six cores and a limited amount of memory (12 GB). These servers are **not** meant to be used for high performance computing but rather as traditional terminal servers, which you can use for e.g. accessing the network drives, synchronizing files, compiling LaTeX or other stuff.
 
-LaTeX can be loaded as a software module by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
+LaTeX can be loaded as a software module on these servers by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
 
