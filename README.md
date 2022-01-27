@@ -2,8 +2,8 @@
 
 biostat@UCPH has access to a small linux computing cluster consisting of two servers:
 
-*) **cox** (official name: `biostatcomp01fl`) 
-*) **rao** (official name: `biostatcomp02fl`) 
+* **cox** (official name: `biostatcomp01fl`) 
+* **rao** (official name: `biostatcomp02fl`) 
 
 Each server has 128 cores and 512 GB of memory. The cluster is suitable for simulations 
 and other parallel computing tasks. 
@@ -218,8 +218,8 @@ If you for some reason wish to use `screen` as a virtual terminal/multiplexer on
 
 biostat@UCPH also have two additional servers
 
-*) **doob** (official name: `biostatcomp03fl`) 
-*) **rasch** (official name: `biostatcomp03fl`)
+* **doob** (official name: `biostatcomp03fl`) 
+* **rasch** (official name: `biostatcomp03fl`)
  
 These are virtual servers with only six cores and a limited amount of memory (12 GB). These servers are **not** meant to be used for high performance computing but rather as traditional terminal servers, which you can use for e.g. assessing the network drives, synchronizing files, compiling LaTeX or other stuff.
 
