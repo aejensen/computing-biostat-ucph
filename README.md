@@ -15,8 +15,7 @@ In order to avoid that multiple users disturb each others computations and to
 ensure a fair allocation of our ressources, all computing tasks **have** to be 
 started using the [Slurm Workload Manager](https://slurm.schedmd.com/documentation.html).
 
-Since the documentation is quite rich, we below explain roughly how to
-compute@biostat-ucph and provide examples.
+Since the documentation is quite rich, we provide below the minimum level of examples.
 
 Questions and help requests should be posed to those who have tried
 before. You can also get write access to this github repository and
@@ -217,7 +216,12 @@ If you for some reason wish to use `screen` as a virtual terminal/multiplexer on
 
 # Linux terminal servers
 
-Biostat @ UCPH also have two additional servers, **doob** (official name: `biostatcomp03fl`) and **rasch** (official name: `biostatcomp03fl`). These are virtual servers with only six cores and a limited amount of memory (12 GB). These servers are **not** meant to be used for high performance computing but rather as traditional terminal servers, which you can use for e.g. assessing the network drives, synchronizing files, compiling LaTeX or other stuff.
+biostat@UCPH also have two additional servers
+
+1) **doob** (official name: `biostatcomp03fl`) 
+2) **rasch** (official name: `biostatcomp03fl`)
+ 
+These are virtual servers with only six cores and a limited amount of memory (12 GB). These servers are **not** meant to be used for high performance computing but rather as traditional terminal servers, which you can use for e.g. assessing the network drives, synchronizing files, compiling LaTeX or other stuff.
 
 LaTeX can be loaded as a software module by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
 
