@@ -20,7 +20,7 @@ Questions and help requests should be posed to those who have tried
 before. You can also get write access to this github repository and
 share your experience and examples.
 
-# Important ground rules
+## Important ground rules
 
 1) It is **not** allowed to run R interactively on the servers *expect*
 when you need to install R packages for subsequent use by jobs
@@ -39,9 +39,10 @@ spawn a lot of threads even though you're only executing a single job.
 This is e.g., the case for the keras packages and other stuff depending
 on TensorFlow and numpy in Python. **[TODO: We are still trying to understand how this works]**
 
+
 # Usage
 
-## Connect to server
+## Connect to a server
 
 Connect to the UCPH domain through a VPN connection unless you are at work 
 (CSS) and use a connection with a cable in the wall. On linux, macOS and 
