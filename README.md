@@ -1,12 +1,13 @@
-# biostat@UCPH High-Performance Computing facilities
+# biostat@UCPH HPC facilities
 
-Biostat @ UCPH has access to a small linux computing cluster consisting of two servers called **cox**
+biostat@UCPH has access to a small linux computing cluster consisting of two servers called **cox**
 (official name: `biostatcomp01fl`) and **rao** (official name: `biostatcomp02fl`). 
+
 Each server has 128 cores and 512 GB of memory. The cluster is suitable for simulations 
-and other parallel computing tasks.  
+and other parallel computing tasks. 
 
 If you submit a job to the cluster you are thus capable of running 256 calculations
-simulataneously (see section later about jobs with a long execution time).
+simulataneously (see the section later about jobs with a long execution time).
 
 In order to avoid that multiple users disturb each others computations and to
 ensure a fair allocation of our ressources, all computing tasks **have** to be 
