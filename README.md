@@ -207,6 +207,10 @@ The scheduler is configured with two queues (called partitions in Slurm lingo): 
 
 To submit a job to the `long` paratition, you need to add the following to your sbatch command `--partition=long`.
 
+## Using `screen` with the software modules
+
+If you for some reason wish to use `screen` as a virtual terminal/multiplexer on the servers, you should be aware that software loaded with `module load` will not immediately be available in your `screen` sessions. There is an easy solution for this. After you start your `screen` session, you can run `module reload` and all your loaded software will be available in that screen session.
+
 
 # Linux terminal servers
 
