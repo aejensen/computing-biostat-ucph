@@ -1,7 +1,9 @@
 # biostat@UCPH HPC facilities
 
-biostat@UCPH has access to a small linux computing cluster consisting of two servers called **cox**
-(official name: `biostatcomp01fl`) and **rao** (official name: `biostatcomp02fl`). 
+biostat@UCPH has access to a small linux computing cluster consisting of two servers:
+
+1) **cox** (official name: `biostatcomp01fl`) 
+2) **rao** (official name: `biostatcomp02fl`) 
 
 Each server has 128 cores and 512 GB of memory. The cluster is suitable for simulations 
 and other parallel computing tasks. 
