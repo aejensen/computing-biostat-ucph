@@ -225,5 +225,8 @@ biostat@UCPH also have two additional servers
  
 These are virtual servers with only six cores and a limited amount of memory (12 GB). These servers are **not** meant to be used for high performance computing but rather as traditional terminal servers, which you can use for e.g. accessing the network drives, synchronizing files, compiling LaTeX or other stuff.
 
-LaTeX can be loaded as a software module on these servers by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
+## LaTeX on doob and rasch
 
+LaTeX can be loaded as a software module on by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
+
+## SAS on doob and rasch
