@@ -237,3 +237,5 @@ module load openjdk/13.0.1 sas/9.4
 ```
 
 **Note**: The SAS executable is called `sas_en`.
+
+There is no graphical user interface available, so you can either run SAS in batch mode or in interactive line mode by running `sas_en -nodms`.
