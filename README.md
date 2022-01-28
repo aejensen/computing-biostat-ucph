@@ -69,13 +69,13 @@ If you **really** want to use Putty, contact AKJ and he knows a solution.
 
 When you log on to the servers you be at your home directory `~`. From there you have access to
 
-* `~/ucph/hdir`: your personal (SAMBA) drive (previously P-drive). This is accessible across all platforms (Windows, macOS, linux).
-* `~/ucph/groupdir`: common (SAMBA) drives shared across the section (SUN-IFSV-BioStat) and the department (SUN-IFSV-ALLE) - previously O/Q-drives.
+* `~/ucph/hdir`: your personal (SMB) drive (previously P-drive). This is accessible across all platforms (Windows, macOS, linux).
+* `~/ucph/groupdir`: common (SMB) drives shared across the section (SUN-IFSV-BioStat) and the department (SUN-IFSV-ALLE) - previously O/Q-drives.
 * `/projects/biostat01`: an NFS drive only available on the servers.
 
 If you're *not* a Windows user, it is *highly recommended* that you put all your files under `/projects/biostat01/people/abc1234` where `abc1234` is your username. If you're a macOS user there also exists a solution where you can locally mount `/projects` using `sshfs`.
 
-**Note**: It is not recommended to run your parallelized jobs with Slurm under `~/ucph/hdir` as you might experience issues with Slurm correctly handling Kerberos tickets with a SAMBA drive. Use `/projects/biostat01/people/abc1234` instead where `abc1234` is your KU user id.
+**Note**: It is not recommended to run your parallelized jobs with Slurm under `~/ucph/hdir` as you might experience issues with Slurm correctly forwarding Kerberos tickets for the SMB protocol. Instead run your jobs under `/projects/biostat01/people/abc1234` instead where `abc1234` is your KU user id.
 
 **Note**: `~` has a quota of 10 GB, so it's not suitable for storing large amounts of data or simulation results. Use `~/ucph/hdir` or `/projects/biostat01/people/abc123` instead.
 
