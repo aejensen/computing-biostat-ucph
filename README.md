@@ -102,7 +102,7 @@ module load R/4.1.2
 you can add the following line to your `~/.bash_profile` file
 
 ```
-module load gcc/11.2.0 R/4.1.1
+module load gcc/11.2.0 R/4.1.2
 ```
 
 This is very convenient and highly recommended as you then don't need to specifically loading this software
@@ -230,3 +230,10 @@ These are virtual servers with only six cores and a limited amount of memory (12
 LaTeX can be loaded as a software module on by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
 
 ## SAS on doob and rasch
+
+To load SAS 9.4 on the servers you must run
+```
+module load openjdk/13.0.1 sas/9.4
+```
+
+**Note**: The SAS executable is called `sas_en`.
