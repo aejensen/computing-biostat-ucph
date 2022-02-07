@@ -227,7 +227,7 @@ These are virtual servers with only six cores and a limited amount of memory (12
 
 ## LaTeX on doob and rasch
 
-LaTeX can be loaded as a software module on by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
+LaTeX can be loaded as a software module by running `module load texlive/2021` and .tex files can then be compiled by running `pdflatex`.
 
 ## SAS on doob and rasch
 
