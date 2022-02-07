@@ -174,7 +174,7 @@ set.seed(seeds[task_id])
 # ---------- Your personal R code goes between these lines ----------
 x <- rnorm(1000)
 result <- mean(x)
-# -------------------------------------------------------------
+# -------------------------------------------------------------------
 
 # Save the results for this task as an individual file in the output folder
 save(result, file = paste0('mySim-res-', sprintf("%05d", task_id), '.RData')
