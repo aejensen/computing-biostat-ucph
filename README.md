@@ -140,7 +140,7 @@ The following commands are used to communicate with the Slurm scheduler and are 
 * ```squeue``` - view information about jobs located in the Slurm scheduler
 * ```scancel``` - cancel a job running on Slurm
 * ```sbatch``` - submit a job to Slurm
-
+* ```sinfo``` - se the state of the cluster (idle and mix are good. drng or anythins else is bad: Contact Andreas)
 
 ## Examples
 
