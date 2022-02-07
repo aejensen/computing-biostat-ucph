@@ -79,7 +79,7 @@ If you're *not* a Windows user, it is *highly recommended* that you put all your
 
 **Note**: `~` has a quota of 10 GB, so it's not suitable for storing large amounts of data or simulation results. Use `~/ucph/hdir` or `/projects/biostat01/people/abc123` instead.
 
-All network drives have a standard KU backup policy.
+All network drives have a standard 90 days UCPH backup policy.
 
 ### Software
 
@@ -140,7 +140,7 @@ The following commands are used to communicate with the Slurm scheduler and are 
 * ```squeue``` - view information about jobs located in the Slurm scheduler
 * ```scancel``` - cancel a job running on Slurm
 * ```sbatch``` - submit a job to Slurm
-* ```sinfo``` - see the state of the cluster (idle and mix are good. drng or anythins else is bad: Contact Andreas)
+* ```sinfo``` - see the state of the cluster (idle and mix are good. drng or anythins else is bad: Contact AKJ)
 
 ## Examples
 
