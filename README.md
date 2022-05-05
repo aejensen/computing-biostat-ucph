@@ -177,7 +177,7 @@ result <- mean(x)
 # -------------------------------------------------------------------
 
 # Save the results for this task as an individual file in the output folder
-save(result, file = paste0('mySim-res-', sprintf("%05d", task_id), '.RData')
+save(result, file = paste0('mySim-res-', sprintf("%05d", task_id), '.RData'))
 ```
 
 Then, execute the following command
