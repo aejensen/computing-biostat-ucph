@@ -70,7 +70,7 @@ If you **really** want to use Putty, contact AKJ and he knows a solution.
 When you log on to the servers you be at your home directory `~`. From there you have access to
 
 * `~/ucph/hdir`: your personal (SMB) drive (previously P-drive). This is accessible across all platforms (Windows, macOS, linux).
-* `~/ucph/groupdir`: common (SMB) drives shared across the section (SUN-IFSV-BioStat) and the department (SUN-IFSV-ALLE) - previously O/Q-drives.
+* `~/ucph/ndir`: common (SMB) drives shared across the section (SUN-IFSV-BioStat) and the department (SUN-IFSV-ALLE) - previously O/Q-drives - and also access to the webhost at biostat.ku.dk.
 * `/projects/biostat01`: an NFS drive only available on the servers.
 
 If you're *not* a Windows user, it is *highly recommended* that you put all your files under `/projects/biostat01/people/abc1234` where `abc1234` is your username. If you're a macOS user there also exists a solution where you can locally mount `/projects` using `sshfs`.
