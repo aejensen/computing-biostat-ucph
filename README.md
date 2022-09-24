@@ -1,15 +1,16 @@
 # biostat@UCPH HPC facilities
 
-biostat@UCPH has access to a small linux computing cluster consisting of two servers:
+biostat@UCPH has access to a small linux computing cluster consisting of three servers:
 
 * **cox** (official name: `biostatcomp01fl`) 
+* **markov** (official name: `biostatcomp05fl`)
 * **rao** (official name: `biostatcomp02fl`) 
 
-Each server has 128 cores and 512 GB of memory. The cluster is suitable for simulations 
-and other parallel computing tasks. 
+The cluster is suitable for simulations  and other parallel computing tasks. 
 
-If you submit a job to the cluster you are thus capable of running 256 calculations
-simulataneously (see the section later about jobs with a long execution time).
+This is very important: cox and markov are part of a scheduling system while rao is an "anarchy server".
+This means that you can use rao in any way you like (but please don't crash it by e.g., exhausing the memory),
+**but** cox and markov must only be used through the slurm scheduler.
 
 In order to avoid that multiple users disturb each others computations and to
 ensure a fair allocation of our ressources, all computing tasks **have** to be 
@@ -23,7 +24,7 @@ share your experience and examples.
 
 ## Important ground rules
 
-1) It is **not** allowed to run R interactively on the servers *expect*
+1) It is **not** allowed to run R interactively on cox and markov *expect*
 when you need to install R packages for subsequent use by jobs
 submitted to the scheduler. You can do that by starting up R
 interactively in a terminal on either cox and rao and installing the
