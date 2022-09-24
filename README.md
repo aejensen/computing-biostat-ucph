@@ -13,10 +13,13 @@ This means that you can use rao in any way you like (but please don't crash it b
 **but** cox and markov must only be used through the slurm scheduler.
 
 In order to avoid that multiple users disturb each others computations and to
-ensure a fair allocation of our ressources, all computing tasks **have** to be 
+ensure a fair allocation of our ressources, all computing tasks on cox and markov **have** to be 
 started using the [Slurm Workload Manager](https://slurm.schedmd.com/documentation.html).
+Since the documentation is quite rich, we provide below the minimum level of examples below.
 
-Since the documentation is quite rich, we provide below the minimum level of examples.
+When you run jobs on cox and markov, the slurm scheduler will automatically parallelize 
+across the servers (see examples below). If you an anarchy job on rao, you must write 
+the parallelization yourself (e.g., using parallel:mclapply).
 
 Questions and help requests should be posed to those who have tried
 before. You can also get write access to this github repository and
