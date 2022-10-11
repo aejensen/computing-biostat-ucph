@@ -237,7 +237,7 @@ LaTeX can be loaded as a software module by running `module load texlive/2021` a
 
 To load SAS 9.4 on the servers you must run
 ```
-module load openjdk/13.0.1 sas/9.4
+module load openjdk/13.0.1 sas/9.4-M7
 ```
 
 The SAS executable is called `sas_en`.
