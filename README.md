@@ -208,6 +208,13 @@ If you wish to cancel a job that is either currently running or is in the queue,
 
 Note, that it can take a little while for running job to be fully canceled. Check by executing `squeue`.
 
+### Batchtools
+
+You can also use the R package **batchtools** on the servers. This is a way to submit jobs to Slurm using R interactively, making submitting jobs, killing (your) jobs, debugging and managing the results that you get somewhat easier, especially if you are a novice user of Slurm. To see how to use it, see **UseOfBatchtoolsPresentation.html** and **example.R**. You will need to setup a working directory for R with **slurm-simple.tmpl** inside. Note that submitting jobs without 
+```
+reg$cluster.functions = makeClusterFunctionsSlurm(template = "slurm-simple.tmpl")
+```
+is not allowed on the servers.
 
 ## Jobs with a long runtime
 
