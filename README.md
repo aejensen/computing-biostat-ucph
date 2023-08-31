@@ -71,7 +71,7 @@ If you **really** want to use Putty, contact AKJ and he knows a solution.
 
 ### Network drives
 
-When you log on to the servers you be at your home directory `~`. From there you have access to
+When you log on to the servers you'll be at your home directory `~`. From there you have access to
 
 * `~/ucph/hdir`: your personal (SMB) drive (previously P-drive). This is accessible across all platforms (Windows, macOS, linux).
 * `~/ucph/ndir`: common (SMB) drives shared across the section (SUN-IFSV-BioStat) and the department (SUN-IFSV-ALLE) - previously O/Q-drives - and also access to the webhost at biostat.ku.dk.
