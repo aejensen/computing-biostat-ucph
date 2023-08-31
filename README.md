@@ -19,7 +19,7 @@ Since the documentation is quite rich, we provide below the minimum level of exa
 
 When you run jobs on cox and markov, the slurm scheduler will automatically parallelize 
 across the servers (see examples below). If you an anarchy job on rao, you must write 
-the parallelization yourself (e.g., using parallel:mclapply).
+the parallelization yourself (e.g., using parallel::mclapply).
 
 Questions and help requests should be posed to those who have tried
 before. You can also get write access to this github repository and
