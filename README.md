@@ -43,6 +43,9 @@ the parallelization - see example later.
 spawn a lot of threads even though you're only executing a single job.
 This is e.g., the case for the keras packages and other stuff depending
 on TensorFlow and numpy in Python. **[TODO: We are still trying to understand how this works]**
+Also, the R package `data.table` uses multi-threading by default; 
+to avoid exceeding the allocated CPU resources, run `setDTthreads(1)` at
+the beginning of your script.
 
 
 # Usage
