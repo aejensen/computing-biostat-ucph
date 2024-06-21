@@ -27,7 +27,7 @@ share your experience and examples.
 
 ## Important ground rules
 
-1) It is **not** allowed to run R interactively on cox and markov *expect*
+1) It is **not** allowed to run R interactively on cox and markov *except*
 when you need to install R packages for subsequent use by jobs
 submitted to the scheduler. You can do that by starting up R
 interactively in a terminal on either cox and rao and installing the
